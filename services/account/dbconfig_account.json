@@ -1,0 +1,8 @@
+{
+	"softwarefolder": "D:\\Downloads\\soa_project\\",
+	"websitefolder": "D:\\Downloads\\soa_project\\website\\",
+	"databasename": "dbAccount",
+	"databaseusername": "root",
+	"databasepassword": "root",
+	"databasetestquery": "SELECT CONCAT('[', GROUP_CONCAT(JSON_OBJECT('_id', _id)), ']') as jsonresult from tAccount;"
+}
