@@ -1,0 +1,32 @@
+#read , #update , #delete , #create{
+	padding: 10px;
+}
+
+body{
+	background-color: #f0d79e;
+}
+
+header{
+
+	padding: 60px;
+	background-color: #ebe8e1;
+	font-family: 'Roboto', sans-serif;
+}
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+#delete_go, #update_go, #create_go{
+	padding:10px 16px;
+
+}
+
+
+tr,td{
+	padding: 5px;
+}
+
+input[type="text"]{
+	padding: 8px;
+}

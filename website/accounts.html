@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>MyBank Account</title>
+	<link rel="stylesheet" type="text/css" href="accounts.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+	<script src="./scripts/angular.1.7.8.js"></script>
+	<script src="./scripts/_mybankAPIgateway.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<script>
+		
+	$(function(){
+
+    $("#inputs").hide();
+    $("#output").hide();
+    $("#update_go").hide();
+    $("#delete_go").hide();
+    $("#create_go").hide();
+    
+    $("#update").on("click", function(){
+        $("#inputs").show();
+        $("#update_go").show();
+        $("#delete_go").hide();
+        $("#create_go").hide();
+    
+    });
+    $("#create").on("click", function(){
+        $("#inputs").show();
+        $("#create_go").show();
+        $("#update_go").hide();
+        $("#delete_go").hide();
+    });
+    $("#delete").on("click", function(){
+        $("#inputs").show();
+        $("#delete_go").show();
+        $("#update_go").hide();
+        $("#create_go").hide();
+    });
+    $("#read").on("click", function(){
+        $("#inputs").hide();
+        $("#delete_go").hide();
+        $("#update_go").hide();
+        $("#create_go").hide();
+        $("#output").hide();
+    });
+    
+
+});
+
+	</script>
+</head>
+
+<header>
+<h1 align=center>MyBank Accounts</h1>
+</header>
+
+<body ng-app="_mybankAPIgateway" ng-controller="_mybankAPIgatewayController">
+	<form id="frm" name="frm">
+		<div align=center >
+			<br>
+			<button name="btnselect" ng-click="data.account.selectquery();" id="read">Read</button>
+			&nbsp;
+			<button id="update">Update</button>
+			&nbsp;
+			<button id = "delete">Delete</button>
+			&nbsp;
+			<button id="create">Create</button>
+			<table id="inputs">
+			<tr>
+				<td>
+					Account ID:&nbsp;
+				</td>
+				<td>
+					<input id="accountid" type="text" name="accountid" ng-model="form.account._ID" placeholder="Account ID" />&nbsp;
+				</td>
+
+			<br>
+			</tr>
+
+			<tr>
+				<td> 
+					Name:&nbsp;
+				</td>
+
+				<td>
+					<input id="accountname" type="text" name="accountname" ng-model="form.account.name"  placeholder="Account Holder Name" />&nbsp;
+				</td>
+			</tr>
+			<br>
+
+			<tr>
+				<td>
+					<div class="cen">
+				<button name="btnupdate" ng-click="data.account.updatequery();" id="update_go" >GO</button>
+			&nbsp;
+			<button name="btndelete" ng-click="data.account.deletequery();" id = "delete_go">GO</button>
+			&nbsp;
+			<button name="btninsert" ng-click="data.account.insertquery();" id="create_go">GO</button>
+		</div>
+		</td>
+			</tr>
+			
+			</table>
+			
+		</div>
+		<br>
+		
+		<div align=center>
+			<br><b>ACCOUNTS LIST</b>
+			<br>
+			<table align="center">
+				<tr>
+					<td align="center">ID</td>
+					<td align="center">ACCOUNT NAME</td>
+					<td align="center">BALANCE</td>
+				</tr>
+				<tr>
+					<td colspan=100%>
+						<hr>
+					</td>
+				</tr>
+				<tr style="color:blue;" ng-repeat="account in data.queryresponse">
+					<td align="center">{{account._ID}}</td>
+					<td align="center">{{account.accountname}}</td>
+					<td align="center">{{account.accountbalance}}</td>
+				</tr>
+			</table>
+		</div>
+
+		<div align=center>
+			<br>
+		
+			<a href="mybank.html">Back to Main Menu</a>
+			<br>
+			
+			
+			
+		</div>
+	</form>
+<footer>
+	
+</footer>
+	
+</body>
+
+</html>
